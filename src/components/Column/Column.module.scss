@@ -1,0 +1,33 @@
+.column {
+  background: var(--column-color);
+  display: flex;
+  flex-direction: column;
+  height: max-content;
+  width: 272px;
+
+  padding: 12px 8px;
+  border-radius: 12px;
+}
+
+.columnTitle {
+  color: var(--white);
+}
+
+.addCardButton {
+  color: var(--white);
+  border: medium none;
+  float: left;
+  background: rgba(28, 28, 28, 0) none;
+  display: flex;
+  border-radius: 8px;
+  width: 20vh;
+  height: 3vh;
+  align-items: center;
+  transition: .1s linear;
+
+  &:hover {
+    cursor: pointer;
+    background: var(--add-card-color);
+  }
+}
+

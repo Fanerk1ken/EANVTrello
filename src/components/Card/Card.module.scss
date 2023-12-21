@@ -1,0 +1,16 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--gray-color-3);
+  min-height: 24px;
+  padding: 3px 12px 4px;
+  border-radius: 12px;
+  margin: 6px 0;
+  border: 3px solid var(--gray-color-3);
+
+  &:hover {
+    cursor: pointer;
+    border: 3px solid #307FE2;
+    transition: .1s linear;
+  }
+}

@@ -1,2 +1,35 @@
+.container {
+  background-color: var(--gray-color-2);
+  min-height: 100vh;
+  display: flex;
+  padding: 8px 0;
+  gap: 16px;
+}
 
+.addColumnButton {
+  background: #ffffff3d;
+  width: 28vh;
+  height: 5vh;
+  border: medium none;
+  float: left;
+  display: flex;
+  align-items: center;
+  color: var(--white);
+  font-family: var(--secondary-font);
+  font-weight: bold;
+  border-radius: 12px;
+  margin: 0 0 8px;
+  padding: 12px;
+  transition: .2s linear;
+}
 
+.addColumnButton:hover {
+  cursor: pointer;
+  background: #9FADBC;
+}
+
+.plusSVG {
+  width: 20px;
+  font-weight: bold;
+  margin: 0 3px 0 0;
+}

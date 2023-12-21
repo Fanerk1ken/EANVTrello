@@ -16,7 +16,9 @@ import './assets/styles/core.scss'
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
       <Provider store={store}>
-        <RouterProvider router={router} />
+        <div style={{minHeight:'100vh', display: 'flex', flexDirection: 'column'}}>
+            <RouterProvider router={router} />
+        </div>
       </Provider>
   </React.StrictMode>
 )
