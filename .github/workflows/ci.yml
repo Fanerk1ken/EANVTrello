@@ -40,4 +40,4 @@ jobs:
           mkdir "$HOME/.ssh"
           echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCcsEmQFgmhSamNtorCPHLz7TaLojPRm5sdaUqXl+4tWbw0TU+PxFsRegc/AYgwvIQZIkf2umSqCclvl1Pep5L7bA8sQpH3PEjPvmJOpvU1c+EfOqaip6qUDNJ+dyumCJ9smkgYnj2AkCq/1AyjZU/8p9Ux1Vtx5APpljWxrDb8z+I9ojDIIHshaOjtkOXOoyej3UoSROYkBOhfAcl/pKDEIriOYmUFjQ1s6G4cAMkh9A9RN9s39/y7CNEJR09YNtvLhHRV73h6H7Tt3q/g+0jaGVVcZKIkmNQz9tuPE4Nig9zEalT8TlN/O9bNCdYJkPEOoF241TmMFcJzpKEBwBknGAzwAdCZahuZ2TA4GQ73zzlCPXxaCWcPrA7vA+fFUTUY2AK8LIe5BtV3iEtG+tiotvSdqRCm+VAz6C7kvSdk+pYakMyWL7wStWgQYPfT+e4t7hbIfuCoQGKT1+cMfLhJ6fUVp9LFKkSmdEY/6clCq3O8FZnwW/sRDItdlqq9hxE= eyese@DESKTOP-J3GOF64" > "$HOME/.ssh/key"
           chmod 600 "$HOME/.ssh/key"
-          cd dist && rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . root@82.97.240.163
+          cd dist && rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . root@82.97.240.163:/home/
