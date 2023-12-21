@@ -1,19 +1,19 @@
 name: 🚀 Deploy on push master
 
-on: 
+on:
   push:
-    branches:    
-      - main 
+    branches:
+      - main
 
 jobs:
   web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
-    
+
     strategy:
       matrix:
         node-version: [18.x]
-    
+
     steps:
     - name: 🚚 Get latest code
       uses: actions/checkout@v2
@@ -22,17 +22,17 @@ jobs:
       uses: actions/setup-node@master
       with:
         node-version: ${{ matrix.node-version }}
-    
+
     - name: Copy .env.prod to .env
       run: cp .env.prod .env
 
-    - name: 🔨 Build Project 
+    - name: 🔨 Build Project
       run: |
         npm install
         npm run build
-    
+
     - name: List output files
-      run: find build/ -print
+      run: find dist/ -print
 
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
@@ -40,4 +40,4 @@ jobs:
         server: ${{ secrets.SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: build/
+        local-dir: dist/
