@@ -38,4 +38,4 @@ jobs:
       - name: Add Perm
         run: chmod 600 "$HOME/.ssh/key"
       - name: Connect To Server
-        run: cd dist && rsync . root@82.97.240.163
+        run: cd dist && rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" . root@82.97.240.163
