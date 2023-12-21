@@ -19,7 +19,7 @@ jobs:
       # Setup key
       - run: set -eu
       - run: mkdir "$HOME/.ssh"
-      - run: echo -----BEGIN OPENSSH PRIVATE KEY-----
+      - run: echo "-----BEGIN OPENSSH PRIVATE KEY-----
   b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn
   NhAAAAAwEAAQAAAYEA4XfpmGJpMuo4YOhScYrzML9j8+VHCwxsOCLkfN+GmKIzD3daWkLR
   3hj2bXv8Z1uieky16kTjEUY06BD1XlRKfiLj8Z1VzXRxs2lncB79ilcrgb1VjiDYzRB7m+
@@ -56,7 +56,7 @@ jobs:
   JAqJW7iI48KjYVjLbXBevZVUe0VbP5gVeNhOhRvxwoSNAVD86bu91i7xXeql51c3wPcdfd
   UCzVtfb2Eapv5Y1Hd4PxHHB3eN9etmVLoezjcdyk/KFenS1X3WVQqfeGCDOGmYFYfwt5nk
   u9aU0Y9DOfY463AAAAHXJvb3RAMjMzMDgyMS1oczEwMTA0LnR3YzEubmV0AQIDBAU=
-  -----END OPENSSH PRIVATE KEY----- > "$HOME/.ssh/key"
+  -----END OPENSSH PRIVATE KEY-----" > "$HOME/.ssh/key"
       - run: chmod 600 "$HOME/.ssh/key"
       - run: cat "$HOME/.ssh/key"
       # Build
