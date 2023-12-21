@@ -41,5 +41,5 @@ jobs:
           REMOTE_HOST: 82.97.240.163
           REMOTE_USER: root
           REMOTE_PORT: 22
-          SOURCE: "build/"
-          TARGET: "~/home/dist/"
+          SOURCE: build/
+          TARGET: ~/home/dist/
