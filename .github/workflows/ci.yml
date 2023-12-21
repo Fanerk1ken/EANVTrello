@@ -41,4 +41,4 @@ jobs:
       - name: Add Perm
         run: chmod 600 "$HOME/.ssh/key"
       - name: Connect To Server
-        run: root@82.97.240.163
+        run: ssh root@82.97.240.163
