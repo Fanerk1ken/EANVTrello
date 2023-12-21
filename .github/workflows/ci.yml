@@ -35,9 +35,9 @@ jobs:
       run: find dist/ -print
 
     - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      uses: SamKirkland/web-deploy@v1
       with:
-        server: ${{ secrets.SERVER }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        local-dir: dist/
+        target-server: ${{ secrets.SERVER }}
+        remote-user: ${{ secrets.USERNAME }}
+        private-ssh-key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDhd+mYYmky6jhg6FJxivMwv2Pz5UcLDGw4IuR834aYojMPd1paQtHeGPZte/xnW6J6TLXqROMRRjToEPVeVEp+IuPxnVXNdHGzaWdwHv2KVyuBvVWOINjNEHub7NDKpjqQfgjwK6WTTjTfuyh3/zLVjnzkd+qfgN0L91qX9u8yozIwh4LA7+a2RHKdnU/cyHI1tqp22cSwMHAYn1+ZN7TlR/eprgeE4lo6IfFnuv21PpI+IPnux6WFMw74s9RAIwNSZgGv8p2ZjJyzEWvn/aYf7JMJ+iH5JpFbi9N06/WXY5MfJarAxzoCXvg58kl+FQC337wzFD5wiIqBBZygJJvYOeKJzHa29TFu4h0HMvgppQ5YDF/V04XbRYa66I2fIU31kR5NgSBgNsFSrPNvsjundDQTX8AlL81QXEgAcmALRbSyc0+n9KtQcDonKenAmRUW9HGgpWbzgMbNsBqSnt7na7qqC00ovolgs5kwJSCKfBfBwXsqETIvQJ28EHpSsg8= root@2330821-hs10104.twc1.net
+        destination-path: ~/home/dist/
