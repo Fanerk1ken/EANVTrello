@@ -7,7 +7,9 @@ import {
 import {router} from "./utils/router";
 import { Provider } from 'react-redux'
 import {store} from "./store/store.ts";
-
+import './assets/styles/fonts.scss'
+import './assets/styles/variable.scss'
+import './assets/styles/core.scss'
 
 
 
@@ -15,6 +17,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
       <Provider store={store}>
         <RouterProvider router={router} />
-      </Provider>,
-  </React.StrictMode>,
+      </Provider>
+  </React.StrictMode>
 )
