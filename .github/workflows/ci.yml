@@ -34,7 +34,7 @@ jobs:
       - name: Create Dir
         run: mkdir "$HOME/.ssh"
       - name: Add SSH
-        run: echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCcsEmQFgmhSamNtorCPHLz7TaLojPRm5sdaUqXl+4tWbw0TU+PxFsRegc/AYgwvIQZIkf2umSqCclvl1Pep5L7bA8sQpH3PEjPvmJOpvU1c+EfOqaip6qUDNJ+dyumCJ9smkgYnj2AkCq/1AyjZU/8p9Ux1Vtx5APpljWxrDb8z+I9ojDIIHshaOjtkOXOoyej3UoSROYkBOhfAcl/pKDEIriOYmUFjQ1s6G4cAMkh9A9RN9s39/y7CNEJR09YNtvLhHRV73h6H7Tt3q/g+0jaGVVcZKIkmNQz9tuPE4Nig9zEalT8TlN/O9bNCdYJkPEOoF241TmMFcJzpKEBwBknGAzwAdCZahuZ2TA4GQ73zzlCPXxaCWcPrA7vA+fFUTUY2AK8LIe5BtV3iEtG+tiotvSdqRCm+VAz6C7kvSdk+pYakMyWL7wStWgQYPfT+e4t7hbIfuCoQGKT1+cMfLhJ6fUVp9LFKkSmdEY/6clCq3O8FZnwW/sRDItdlqq9hxE= eyese@DESKTOP-J3GOF64" > "$HOME/.ssh/key"
+        run: echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDhd+mYYmky6jhg6FJxivMwv2Pz5UcLDGw4IuR834aYojMPd1paQtHeGPZte/xnW6J6TLXqROMRRjToEPVeVEp+IuPxnVXNdHGzaWdwHv2KVyuBvVWOINjNEHub7NDKpjqQfgjwK6WTTjTfuyh3/zLVjnzkd+qfgN0L91qX9u8yozIwh4LA7+a2RHKdnU/cyHI1tqp22cSwMHAYn1+ZN7TlR/eprgeE4lo6IfFnuv21PpI+IPnux6WFMw74s9RAIwNSZgGv8p2ZjJyzEWvn/aYf7JMJ+iH5JpFbi9N06/WXY5MfJarAxzoCXvg58kl+FQC337wzFD5wiIqBBZygJJvYOeKJzHa29TFu4h0HMvgppQ5YDF/V04XbRYa66I2fIU31kR5NgSBgNsFSrPNvsjundDQTX8AlL81QXEgAcmALRbSyc0+n9KtQcDonKenAmRUW9HGgpWbzgMbNsBqSnt7na7qqC00ovolgs5kwJSCKfBfBwXsqETIvQJ28EHpSsg8= root@2330821-hs10104.twc1.net" > "$HOME/.ssh/key"
       - name: Add Perm
         run: chmod 600 "$HOME/.ssh/key"
       - name: Connect To Server
