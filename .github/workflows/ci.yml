@@ -1,0 +1,45 @@
+name: 🚀 Deploy on push master
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [ 18.x ]
+
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@master
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Copy .env.prod to .env
+        run: cp .env.prod .env
+
+      - name: 🔨 Build Project
+        run: |
+          npm install
+          npm run build
+
+      - name: List output files
+        run: find dist/ -print
+
+      - name: 📂 Sync files
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDhd+mYYmky6jhg6FJxivMwv2Pz5UcLDGw4IuR834aYojMPd1paQtHeGPZte/xnW6J6TLXqROMRRjToEPVeVEp+IuPxnVXNdHGzaWdwHv2KVyuBvVWOINjNEHub7NDKpjqQfgjwK6WTTjTfuyh3/zLVjnzkd+qfgN0L91qX9u8yozIwh4LA7+a2RHKdnU/cyHI1tqp22cSwMHAYn1+ZN7TlR/eprgeE4lo6IfFnuv21PpI+IPnux6WFMw74s9RAIwNSZgGv8p2ZjJyzEWvn/aYf7JMJ+iH5JpFbi9N06/WXY5MfJarAxzoCXvg58kl+FQC337wzFD5wiIqBBZygJJvYOeKJzHa29TFu4h0HMvgppQ5YDF/V04XbRYa66I2fIU31kR5NgSBgNsFSrPNvsjundDQTX8AlL81QXEgAcmALRbSyc0+n9KtQcDonKenAmRUW9HGgpWbzgMbNsBqSnt7na7qqC00ovolgs5kwJSCKfBfBwXsqETIvQJ28EHpSsg8= root@2330821-hs10104.twc1.net
+          REMOTE_HOST: 82.97.240.163
+          REMOTE_USER: root
+          REMOTE_PORT: 22
+          SOURCE: dist/
+          TARGET: ~/home/dist/
