@@ -1,41 +1,28 @@
-name: 🚀 Deploy on push master
+name: Deploy
 
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
-  web-deploy:
-    name: 🎉 Deploy
+  deploy:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
-        node-version: [ 18.x ]
-
+        node-version: [12.x]
     steps:
-      - name: 🚚 Get latest code
-        uses: actions/checkout@v2
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@master
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-
-      - name: 🔨 Build Project
-        run: |
-          npm install
-          npm run build
-
-      - name: List output files
-        run: find dist/ -print
-
-      - name: Create Dir
-        run: mkdir "$HOME/.ssh"
-      - name: Add SSH
-        run: echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDhd+mYYmky6jhg6FJxivMwv2Pz5UcLDGw4IuR834aYojMPd1paQtHeGPZte/xnW6J6TLXqROMRRjToEPVeVEp+IuPxnVXNdHGzaWdwHv2KVyuBvVWOINjNEHub7NDKpjqQfgjwK6WTTjTfuyh3/zLVjnzkd+qfgN0L91qX9u8yozIwh4LA7+a2RHKdnU/cyHI1tqp22cSwMHAYn1+ZN7TlR/eprgeE4lo6IfFnuv21PpI+IPnux6WFMw74s9RAIwNSZgGv8p2ZjJyzEWvn/aYf7JMJ+iH5JpFbi9N06/WXY5MfJarAxzoCXvg58kl+FQC337wzFD5wiIqBBZygJJvYOeKJzHa29TFu4h0HMvgppQ5YDF/V04XbRYa66I2fIU31kR5NgSBgNsFSrPNvsjundDQTX8AlL81QXEgAcmALRbSyc0+n9KtQcDonKenAmRUW9HGgpWbzgMbNsBqSnt7na7qqC00ovolgs5kwJSCKfBfBwXsqETIvQJ28EHpSsg8= root@2330821-hs10104.twc1.net" > "$HOME/.ssh/key"
-      - name: Add Perm
-        run: chmod 600 "$HOME/.ssh/key"
-      - name: Connect To Server
-        run: cd dist && rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" . root@82.97.240.163
+      # Setup key
+      - run: set -eu
+      - run: mkdir "$HOME/.ssh"
+      - run: echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCcsEmQFgmhSamNtorCPHLz7TaLojPRm5sdaUqXl+4tWbw0TU+PxFsRegc/AYgwvIQZIkf2umSqCclvl1Pep5L7bA8sQpH3PEjPvmJOpvU1c+EfOqaip6qUDNJ+dyumCJ9smkgYnj2AkCq/1AyjZU/8p9Ux1Vtx5APpljWxrDb8z+I9ojDIIHshaOjtkOXOoyej3UoSROYkBOhfAcl/pKDEIriOYmUFjQ1s6G4cAMkh9A9RN9s39/y7CNEJR09YNtvLhHRV73h6H7Tt3q/g+0jaGVVcZKIkmNQz9tuPE4Nig9zEalT8TlN/O9bNCdYJkPEOoF241TmMFcJzpKEBwBknGAzwAdCZahuZ2TA4GQ73zzlCPXxaCWcPrA7vA+fFUTUY2AK8LIe5BtV3iEtG+tiotvSdqRCm+VAz6C7kvSdk+pYakMyWL7wStWgQYPfT+e4t7hbIfuCoQGKT1+cMfLhJ6fUVp9LFKkSmdEY/6clCq3O8FZnwW/sRDItdlqq9hxE= eyese@DESKTOP-J3GOF64" > "$HOME/.ssh/key"
+      - run: chmod 600 "$HOME/.ssh/key"
+      # Build
+      - run: npm ci
+      - run: npm run build
+      # Deploy
+      - run: cd dist && rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . root@82.97.240.163:/var/www/pepelsbey.dev/html/
