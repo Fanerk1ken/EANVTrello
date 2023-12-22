@@ -5,24 +5,24 @@
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended"
   ],
-  plugins: [
-    'react',
-    'react-hooks',
-    'jsx-a11y',
-    'prettier'
+  "plugins": [
+    "react",
+    "react-hooks",
+    "jsx-a11y",
+    "prettier"
   ],
-  ignorePatterns: [
-    'dist',
-    '.eslintrc.cjs'
+  "ignorePatterns": [
+    "dist",
+    ".eslintrc.cjs"
   ],
-  parserOptions: {
-    ecmaVersion: 2021,
-    sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
     }
   },
-  rules: {
-    'prettier/prettier': 'error'
+  "rules": {
+    "prettier/prettier": "error"
   }
 }
