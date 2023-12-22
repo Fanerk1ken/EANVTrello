@@ -17,3 +17,9 @@
     transition: .1s linear;
   }
 }
+
+
+.cardTitle {
+  display: inline-block;
+  overflow-wrap: break-word;
+}
