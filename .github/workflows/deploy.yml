@@ -1,4 +1,4 @@
-name: Deploy
+name: 🚀 Deploy
 
 on:
   push:
@@ -16,7 +16,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      # Setup key
       - run: set -eu
       - run: mkdir "$HOME/.ssh"
       - run: echo "${{ secrets.KEY }}" > "$HOME/.ssh/key"
@@ -24,6 +23,8 @@ jobs:
       - run: cat "$HOME/.ssh/key"
       # Build
       - run: npm ci
-      - run: npm run build
+      - name: 🏗 Build
+        run: npm run build
       # Deploy
-      - run: cd dist && rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . root@82.97.240.163:/var/www/html/
+      - name: 🛫 Deploy to server
+        run: cd dist && rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . root@82.97.240.163:/var/www/eanv-board.ru/html/
