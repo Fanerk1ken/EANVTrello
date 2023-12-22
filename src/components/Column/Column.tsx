@@ -56,9 +56,7 @@ const Column: FC<ColumnProps> = (props) => {
             {openAddCard ?
                 <div ref={clickRef}>
                     <form onSubmit={onSubmit}>
-                        <textarea autoFocus={true} className={style.inputAddCard}
-                                  placeholder="Ввести заголовок для этой карточки" id="" cols={30}
-                                  rows={10} {...register("value", {required: true})}></textarea>
+                        <textarea autoFocus={true} className={style.inputAddCard} placeholder="Ввести заголовок для этой карточки" cols={30} rows={10} {...register("value", { required: true})}></textarea>
                     </form>
                 </div> : undefined}
 
