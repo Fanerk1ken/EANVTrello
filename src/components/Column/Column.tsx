@@ -6,6 +6,7 @@ import {useState} from "react";
 import {useRef} from "react";
 import {useClickOutside} from "../../utils/hook/useClickOutside.ts";
 import {useForm} from "react-hook-form"
+import Button from "../Buttons/Button.tsx";
 
 
 type Inputs = {
@@ -59,13 +60,7 @@ const Column: FC<ColumnProps> = (props) => {
                         <textarea autoFocus={true} className={style.inputAddCard} placeholder="Ввести заголовок для этой карточки" cols={30} rows={10} {...register("value", { required: true})}></textarea>
                     </form>
                 </div> : undefined}
-
-
-            <button ref={clickButtonRef} className={style.addCardButton}
-                    onClick={onClick}>
-                <BsPlusLg/>
-                Добавить карточку
-            </button>
+            <Button ref={clickButtonRef} className={style.addCardButton} onClick={onClick}><BsPlusLg/>Добавить карточку</Button>
         </div>
     );
 };
