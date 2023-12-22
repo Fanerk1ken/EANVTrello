@@ -47,24 +47,25 @@ const ColumnGroup = () => {
         setOpenNewColomn(false)
     })
     return (
-        <div>
-            {columns.map(el => <Column key={Date.now()} title={el.title} tasks={[]}/>)}
-            {openNewColomn ? <div ref={clickRef}>
-                <form onSubmit={onSubmit} className={style.form}>
+            <div className={style.columns}>
+                {columns.map(el => <Column key={Date.now()} title={el.title} tasks={[]}/>)}
+                <div>
+                {openNewColomn ? <div ref={clickRef}>
+                    <form onSubmit={onSubmit} className={style.form}>
                     <textarea autoFocus={true}
                               className={style.inputAddColumn}
                               placeholder="Ввести заголовок для списка" cols={30}
                               rows={10} {...register("value", {required: true})}></textarea>
-                    <div className={style.openAddCardWithCloseIcons}>
-                        <Button className={style.addNewColumnButton} type={"submit"} onSubmit={onSubmit}>
-                            Добавить колонку
-                        </Button>
-                        <IoCloseOutline onClick={handleClickClose} className={style.closeSvg} color={'white'} />
-                    </div>
-
-                </form>
-            </div> : <Button onClick={onClick} className={style.addColumnButton}><BsPlusLg/>Добавить еще одну колонку</Button>}
-        </div>
+                        <div className={style.openAddCardWithCloseIcons}>
+                            <Button className={style.addNewColumnButton} type={"submit"} onSubmit={onSubmit}>
+                                Добавить колонку
+                            </Button>
+                            <IoCloseOutline onClick={handleClickClose} className={style.closeSvg} color={'white'} />
+                        </div>
+                    </form>
+                </div> : <Button onClick={onClick} className={style.addColumnButton}><BsPlusLg/>Добавить еще одну колонку</Button>}
+            </div>
+            </div>
     );
 };
 
