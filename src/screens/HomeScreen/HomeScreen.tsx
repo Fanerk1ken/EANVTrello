@@ -1,4 +1,3 @@
-// тут все компоненты
 import style from './HomeScreen.module.scss'
 import { BsPlusLg } from "react-icons/bs";
 import tasks from '../../utils/mock/tasks.json'

@@ -12,7 +12,7 @@ const Card:FC<CardProps>= (props) => {
     return (
         <div className={style.card}>
             <span>{props.title}</span>
-            <span><AiOutlineAlignLeft />FTL-{props.id}</span>
+            <span className={style.taskId}><AiOutlineAlignLeft />FTL-{props.id}</span>
         </div>
     );
 };

@@ -1,4 +1,5 @@
 .card {
+  color: var(--text-color-1);
   display: flex;
   flex-direction: column;
   background: var(--gray-color-3);
@@ -7,6 +8,8 @@
   border-radius: 8px;
   margin: 6px 0;
   border: 3px solid var(--gray-color-3);
+  font-size: small;
+  gap: 0.375rem;
 
   &:hover {
     cursor: pointer;
