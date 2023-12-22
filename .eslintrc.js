@@ -1,4 +1,4 @@
-{
+module.exports = {
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
@@ -16,11 +16,10 @@
     ".eslintrc.cjs"
   ],
   "parserOptions": {
-    "ecmaVersion": 2021,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
-    }
+    "ecmaVersion": 'latest',
+    "sourceType": 'module',
+    "project": ['./tsconfig.json', './tsconfig.node.json'],
+    "tsconfigRootDir": "__dirname",
   },
   "rules": {
     "prettier/prettier": "error"
