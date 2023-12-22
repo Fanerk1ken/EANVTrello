@@ -9,8 +9,8 @@ import { useForm } from "react-hook-form"
 
 
 type Inputs = {
-    example: string
-    exampleRequired: string
+    value: string
+    valueRequired: string
 }
 
 type ColumnProps = {
@@ -36,7 +36,7 @@ const Column:FC<ColumnProps> = (props) => {
         reset,
     } = useForm<Inputs>()
     const onSubmit = handleSubmit((data) => {
-        setCards((prev) => [...prev, {id: Date.now(), title: data.example, description: ''}])
+        setCards((prev) => [...prev, {id: Date.now(), title: data.value, description: ''}])
         reset()
         })
     const onClick = () => {
@@ -52,11 +52,11 @@ const Column:FC<ColumnProps> = (props) => {
     return (
         <div className={style.column}>
             <span>{props.title}</span>
-            {cards.map(task => <Card key={task.id} title={task.title} description={task.description}/>)}
+            {cards.map(task => <Card key={task.id} id={task.id} title={task.title} description={task.description}/>)}
             {openAddCard ?
                 <div ref={clickRef} >
                     <form onSubmit={onSubmit}>
-                        <input type="text" placeholder="Ввести заголовок для этой карточки" {...register("example")}/>
+                        <textarea autoFocus={true} className={style.inputAddCard} placeholder="Ввести заголовок для этой карточки" id="" cols={30} rows={10} {...register("value", { required: true})}></textarea>
                     </form>
                 </div> : undefined}
 

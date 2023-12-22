@@ -31,3 +31,27 @@
   }
 }
 
+
+.inputAddCard {
+  border: none;
+  background-image:none;
+  background-color:transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  background: var(--gray-color-3);
+  height: 78px;
+  width: 256px;
+  padding: 3px 12px 4px;
+  border-radius: 8px;
+  margin: 6px 0;
+  resize: none;
+  outline: none;
+  box-sizing: border-box;
+  &:focus {
+
+  }
+}
+
