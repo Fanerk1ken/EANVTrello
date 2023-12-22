@@ -1,0 +1,17 @@
+.addCardButton {
+  color: var(--text-color-1);
+  border: medium none;
+  background: rgba(28, 28, 27, 0) none;
+  display: flex;
+  border-radius: 0.5rem;
+  width: 11.875rem;
+  height: 1.75rem;
+  align-items: center;
+  transition: .1s linear;
+  gap: 0.375rem;
+
+  &:hover {
+    cursor: pointer;
+    background: var(--add-card-hover);
+  }
+}
