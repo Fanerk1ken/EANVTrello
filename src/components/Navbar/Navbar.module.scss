@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  gap: 1rem;
+}
+
+.dropdownMenu {
+  display: inline-flex;
+  gap: 42rem;
+}
+
+.leftSection > select {
+  margin-right: 1rem;
+}
+
+.backgroundContainer {
+  height: 2rem;
+  width: max-content;
+  background-color: #3d474f;
+}
+
+
+
