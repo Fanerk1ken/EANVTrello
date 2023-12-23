@@ -6,7 +6,7 @@ import {Column} from "../Column";
 import Button from "../Buttons/Button.tsx";
 import {BsPlusLg} from "react-icons/bs";
 import style from './ColumnGroup.module.scss'
-import { IoCloseOutline } from "react-icons/io5";
+import {IoCloseOutline} from "react-icons/io5";
 
 type Inputs = {
     value: string
@@ -47,9 +47,9 @@ const ColumnGroup = () => {
         setOpenNewColomn(false)
     })
     return (
-            <div className={style.columns}>
-                {columns.map(el => <Column key={Date.now()} title={el.title} tasks={[]}/>)}
-                <div>
+        <div className={style.columns}>
+            {columns.map(el => <Column key={Date.now()} title={el.title} tasks={[]}/>)}
+            <div>
                 {openNewColomn ? <div ref={clickRef}>
                     <form onSubmit={onSubmit} className={style.form}>
                     <textarea autoFocus={true}
@@ -60,12 +60,13 @@ const ColumnGroup = () => {
                             <Button className={style.addNewColumnButton} type={"submit"} onSubmit={onSubmit}>
                                 Добавить колонку
                             </Button>
-                            <IoCloseOutline onClick={handleClickClose} className={style.closeSvg} color={'white'} />
+                            <IoCloseOutline onClick={handleClickClose} className={style.closeSvg} color={'white'}/>
                         </div>
                     </form>
-                </div> : <Button onClick={onClick} className={style.addColumnButton}><BsPlusLg/>Добавить еще одну колонку</Button>}
+                </div> : <Button onClick={onClick} className={style.addColumnButton}><BsPlusLg/>Добавить еще одну
+                    колонку</Button>}
             </div>
-            </div>
+        </div>
     );
 };
 
