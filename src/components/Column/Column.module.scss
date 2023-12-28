@@ -9,6 +9,8 @@
 }
 
 .columnTitle {
+  display: inline-block;
+  overflow-wrap: break-word;
   color: var(--text-color-1);
   margin-bottom: 0.5rem;
   margin-left: 0.5rem;
