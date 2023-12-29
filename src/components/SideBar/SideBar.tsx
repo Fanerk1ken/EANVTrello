@@ -29,7 +29,7 @@ const SideBar = () => {
                                 <span className={style.name}>Хайпарики</span>
                                 <span className={style.tariff}>Бесплатно</span>
                         </div>
-                        <IoMdArrowDropleft className={`${style.sideBarButton} ${openSideBar ? style.buttonClose : style.buttonOpen}`} onClick={handleIsOpen} size={'1.5rem'} color={'white'}/>
+
                     </div>
                     <div className={style.containerWithMainSideBarContent}>
                         <div className={style.boards}>
@@ -54,30 +54,11 @@ const SideBar = () => {
 
     return (
         <>
-            <div className={style.sideBarClose}>
-                {/*<CSSTransition*/}
-                {/*    in={openSideBar}*/}
-                {/*    timeout={200}*/}
-                {/*    classNames={{*/}
-                {/*        enter: style.sidebarAnimationEnter,*/}
-                {/*        enterActive: style.sidebarAnimationEnterActive,*/}
-                {/*        exit: style.sidebarAnimationExit,*/}
-                {/*        exitActive: style.sidebarAnimationExitActive,*/}
-                {/*    }}*/}
-                {/*    unmountOnExit*/}
-                {/*>*/}
-                {/*    {status => {*/}
-                {/*        if (status === 'exited') {*/}
-                {/*            return null;*/}
-                {/*        }*/}
-                {/*        return sidebarContent;*/}
-                {/*    }}*/}
-                {/*</CSSTransition>*/}
+            <div className={style.sideBarWrapper}>
                 {sidebarContent}
-                {/*{openSideBar ? null : <div className={style.openingButton}>*/}
-                {/*    <MdArrowRight className={style.buttonOpen} onClick={handleIsOpen} size={'1.5rem'} color={'white'}/>*/}
-                {/*</div>}*/}
+                <IoMdArrowDropleft className={`${style.sideBarButton} ${openSideBar ? style.buttonClose : style.buttonOpen}`} onClick={handleIsOpen} size={'1.5rem'} color={'white'}/>
             </div>
+
         </>
     );
 };
