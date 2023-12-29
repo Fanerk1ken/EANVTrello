@@ -1,9 +1,7 @@
 import style from './SideBar.module.scss'
 import {useState} from "react";
 import logo from '../../assets/images/logo.png'
-import { CSSTransition} from 'react-transition-group';
 import { IoMdArrowDropleft } from "react-icons/io";
-import { MdArrowRight } from "react-icons/md";
 import { TbLayoutBoardSplit } from "react-icons/tb";
 import { IoPeopleOutline } from "react-icons/io5";
 import { IoSettingsOutline } from "react-icons/io5";
@@ -13,6 +11,7 @@ import { IoIosArrowDown } from "react-icons/io";
 
 const SideBar = () => {
     const [openSideBar, setOpenSideBar] = useState(true)
+
 
     const handleIsOpen = () => {
         setOpenSideBar(!openSideBar);
@@ -30,9 +29,7 @@ const SideBar = () => {
                                 <span className={style.name}>Хайпарики</span>
                                 <span className={style.tariff}>Бесплатно</span>
                         </div>
-                        <div className={style.closingButton}>
-                            <IoMdArrowDropleft className={style.buttonClose} onClick={handleIsOpen} size={'1.5rem'} color={'white'}/>
-                        </div>
+                        <IoMdArrowDropleft className={`${style.sideBarButton} ${openSideBar ? style.buttonClose : style.buttonOpen}`} onClick={handleIsOpen} size={'1.5rem'} color={'white'}/>
                     </div>
                     <div className={style.containerWithMainSideBarContent}>
                         <div className={style.boards}>
@@ -49,10 +46,8 @@ const SideBar = () => {
                             <span>Настройка рабочего пространства</span>
                             <IoIosArrowDown className={style.arrowDown} size={'0.875rem'} color={'white'} />
                         </div>
-
                     </div>
                 </header>
-
             </nav>
         </div>
     );
@@ -60,27 +55,28 @@ const SideBar = () => {
     return (
         <>
             <div className={style.sideBarClose}>
-                <CSSTransition
-                    in={openSideBar}
-                    timeout={200}
-                    classNames={{
-                        enter: style.sidebarAnimationEnter,
-                        enterActive: style.sidebarAnimationEnterActive,
-                        exit: style.sidebarAnimationExit,
-                        exitActive: style.sidebarAnimationExitActive,
-                    }}
-                    unmountOnExit
-                >
-                    {status => {
-                        if (status === 'exited') {
-                            return null;
-                        }
-                        return sidebarContent;
-                    }}
-                </CSSTransition>
-                <div className={style.openingButton}>
-                    <MdArrowRight className={style.buttonOpen} onClick={handleIsOpen} size={'1.5rem'} color={'white'}/>
-                </div>
+                {/*<CSSTransition*/}
+                {/*    in={openSideBar}*/}
+                {/*    timeout={200}*/}
+                {/*    classNames={{*/}
+                {/*        enter: style.sidebarAnimationEnter,*/}
+                {/*        enterActive: style.sidebarAnimationEnterActive,*/}
+                {/*        exit: style.sidebarAnimationExit,*/}
+                {/*        exitActive: style.sidebarAnimationExitActive,*/}
+                {/*    }}*/}
+                {/*    unmountOnExit*/}
+                {/*>*/}
+                {/*    {status => {*/}
+                {/*        if (status === 'exited') {*/}
+                {/*            return null;*/}
+                {/*        }*/}
+                {/*        return sidebarContent;*/}
+                {/*    }}*/}
+                {/*</CSSTransition>*/}
+                {sidebarContent}
+                {/*{openSideBar ? null : <div className={style.openingButton}>*/}
+                {/*    <MdArrowRight className={style.buttonOpen} onClick={handleIsOpen} size={'1.5rem'} color={'white'}/>*/}
+                {/*</div>}*/}
             </div>
         </>
     );

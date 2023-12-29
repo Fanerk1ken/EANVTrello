@@ -33,6 +33,7 @@
   padding: 0.625rem 0.875rem;
   overflow: hidden;
   transition: width 0.3s ease-in-out;
+  position: relative;
 
   &.sideBarClose {
     width: 0;
@@ -75,18 +76,9 @@
   }
 }
 
-
-
-.closingButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: auto;
-}
-
-.buttonClose {
+.sideBarButton {
+  position: absolute;
   background: var(--button-color);
-  border-radius: 0.175rem;
   width: 2rem;
   height: 2rem;
 
@@ -95,7 +87,24 @@
     cursor: pointer;
     background: var(--button-color-hover);
   }
+
+  &.buttonClose {
+    border-radius: 0.175rem;
+    right: 1rem;
+    top: 0.875rem;
+  }
+
+  &.buttonOpen {
+    border-radius: 100%;
+    border: 1px solid var(--button-color-hover);
+    z-index: 1;
+  }
 }
+
+
+
+
+
 
 .sideBarClose {
   background: var(--body-color);
@@ -113,22 +122,7 @@
   padding-right: 0.125rem;
 }
 
-.buttonOpen {
-  background: var(--button-color);
-  border-radius: 100%;
-  border: 1px solid var(--button-color-hover);
-  width: 2rem;
-  height: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
-  &:hover {
-    transition: .1s linear;
-    cursor: pointer;
-    background: var(--button-color-hover);
-  }
-}
 
 
 .containerWithMainSideBarContent {
