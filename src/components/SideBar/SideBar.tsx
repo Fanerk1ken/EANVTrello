@@ -1,12 +1,12 @@
 import style from './SideBar.module.scss'
 import {useState} from "react";
 import logo from '../../assets/images/logo.png'
-import { IoMdArrowDropleft } from "react-icons/io";
 import { TbLayoutBoardSplit } from "react-icons/tb";
 import { IoPeopleOutline } from "react-icons/io5";
 import { IoSettingsOutline } from "react-icons/io5";
 import { GoPlus } from "react-icons/go";
 import { IoIosArrowDown } from "react-icons/io";
+import { RiArrowDropLeftLine } from "react-icons/ri";
 
 
 const SideBar = () => {
@@ -20,7 +20,7 @@ const SideBar = () => {
     const sidebarContent = (
         <div className={`${style.sideBar} ${openSideBar ? style.sideBarOpen : style.sideBarClose}`}>
             <nav className={style.sideBarContent}>
-                <header>
+                <div>
                     <div className={style.imageText}>
                         <span className={style.image}>
                             <img src={logo} alt="logo"/>
@@ -43,20 +43,20 @@ const SideBar = () => {
                         </div>
                         <div className={style.settings}>
                             <IoSettingsOutline />
-                            <span>Настройка рабочего пространства</span>
+                                <span>Настройка рабочего пространства</span>
                             <IoIosArrowDown className={style.arrowDown} size={'0.875rem'} color={'white'} />
                         </div>
                     </div>
-                </header>
+                </div>
             </nav>
         </div>
     );
 
     return (
         <>
-            <div className={style.sideBarWrapper}>
+            <div className={`${style.sideBarWrapper} ${openSideBar ? style.sideBarWrapperOpen : style.sideBarWrapperClose}`}>
+                <RiArrowDropLeftLine className={`${style.sideBarButton} ${openSideBar ? style.buttonClose : style.buttonOpen}`} onClick={handleIsOpen} color={'white'}/>
                 {sidebarContent}
-                <IoMdArrowDropleft className={`${style.sideBarButton} ${openSideBar ? style.buttonClose : style.buttonOpen}`} onClick={handleIsOpen} size={'1.5rem'} color={'white'}/>
             </div>
 
         </>
