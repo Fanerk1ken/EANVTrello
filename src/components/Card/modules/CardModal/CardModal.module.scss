@@ -12,7 +12,84 @@
 
 .cardModalContent {
   background-color: var(--card-modal-background);
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 0 0.65rem rgba(0, 0, 0, 0.3);
+  display: block;
+  position: relative;
+
 }
+.closeButton {
+  color: var(--card-modal-close-button);
+  border-radius: 50%;
+  cursor: pointer;
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 400;
+  height: 2rem;
+  line-height: 2rem;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  padding: 0.25rem;
+  position: absolute;
+  right: 0.75rem;
+  width: 2rem;
+  z-index: 2;
+
+  &:hover {
+    background: var(--card-modal-close-button-hover);
+    transition: .1s linear;
+  }
+}
+
+.cardDetailModal {
+  border-radius: 0.5rem;
+  min-height: 37.5rem;
+
+  .modalHeader {
+    min-height: 2rem;
+    padding: 0.5rem 3.25rem 0.5rem 3.5rem;
+    position: relative;
+    z-index: 1;
+
+    .modalHeaderIcon {
+      left: 1rem;
+      position: absolute;
+      top: 1rem;
+    }
+
+    .modalTitle {
+      padding: 0.75rem 0 0;
+
+      h2 {
+        color: var(--card-modal-header-title-color);
+        font-size: 1.25rem;
+        font-weight: 600;
+        line-height: 1.5rem;
+        margin-block-end: 0.5rem;
+        margin-block-start: 0;
+        margin: 0 0.25rem 0.5rem 0;
+        margin-inline-end: 0.25rem;
+        margin-inline-start: 0;
+      }
+    }
+  }
+}
+
+.iconLg {
+  color: var(--card-modal-header-icon);
+  height: 2rem;
+  line-height: 2rem;
+  width: 2rem;
+  font-size: 1.5rem;
+  display: block;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: bottom;
+  left: 1rem;
+  position: absolute;
+  top: 1rem;
+}
+

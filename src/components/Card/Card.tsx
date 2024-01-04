@@ -32,7 +32,7 @@ const Card:FC<CardProps>= (props) => {
                 <span className={style.cardTitle}>{title}</span>
                 <span className={style.taskId}><AiOutlineAlignLeft />FTL-{id}</span>
             </div>
-            {modalOpen ? <CardModal isOpen={modalOpen} onClose={closeModal}/> : undefined}
+            {modalOpen ? <CardModal title={title} isOpen={modalOpen} onClose={closeModal}/> : undefined}
         </>
     );
 };
