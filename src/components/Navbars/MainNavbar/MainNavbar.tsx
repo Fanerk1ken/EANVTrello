@@ -1,10 +1,11 @@
 import {useState} from 'react'
-import {DropDownButton} from './DropDownButton.tsx'
+import DropDownButton from "../DropDownButton/DropDownButton.tsx"
 import style from './MainNavbar.module.scss'
-import {optionsData} from './optionsData.ts'
-import { CiCircleQuestion } from "react-icons/ci";
-import { RxAvatar } from "react-icons/rx";
-import { IoMdNotificationsOutline } from "react-icons/io";
+import {mainNavOptions} from '../options/mainNav-options-const.ts'
+import {CiCircleQuestion} from "react-icons/ci";
+import {RxAvatar} from "react-icons/rx";
+import {IoMdNotificationsOutline} from "react-icons/io";
+
 const MainNavbar = () => {
 
     const [selected, setSelected] = useState('')
@@ -17,14 +18,14 @@ const MainNavbar = () => {
             <header className={style.header}>
                 <div className={style.logo}>EANVTrello</div>
                 <div className={style.dropdownMenu}>
-                    {Object.keys(optionsData).map((option) => (
+                    {Object.keys(mainNavOptions).map((option) => (
                         <DropDownButton
                             key={option}
                             className={style.dropdownButton}
                             onSelect={subOption =>
                                 handleSelect(option, subOption)
                             }
-                            subOptions={optionsData[option]}
+                            subOptions={mainNavOptions[option]}
                         >
                             {option}
                         </DropDownButton>
